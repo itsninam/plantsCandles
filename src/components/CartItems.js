@@ -31,6 +31,7 @@ const CartItems = ({ cart }) => {
                       $ {item.coffeePrices} {item.donutPrices}
                     </p>
                   </div>
+                  <p>({item.quantity})</p>
                 </li>
               );
             })}

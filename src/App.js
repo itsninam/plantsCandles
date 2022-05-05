@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import DisplayItems from "./components/DisplayItems";
 import Categories from "./components/Categories";
 import CartItems from "./components/CartItems";
+import Footer from "./components/Footer";
 
 function App() {
   //store api data
@@ -122,8 +123,13 @@ function App() {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
+  const [categoryName, setCategoryName] = useState("");
 
-  // console.log(cart);
+  const singleCategory = (name) => {
+    const singleCategory = categories.find((category) => category === name);
+    setCategoryName(singleCategory);
+  };
+
   return (
     <>
       <Routes>
@@ -135,8 +141,14 @@ function App() {
               <Categories
                 categories={categories}
                 handleCategory={handleCategory}
+                singleCategory={singleCategory}
               />
-              <DisplayItems data={filtered} handleAddItem={handleAddItem} />
+              <DisplayItems
+                data={filtered}
+                handleAddItem={handleAddItem}
+                categoryName={categoryName}
+              />
+              <Footer />
             </>
           }
         />
