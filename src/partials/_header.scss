@@ -1,0 +1,17 @@
+/* Header */
+.headerContainer {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  width: 100%;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+h1 {
+  border-bottom: 1px solid black;
+}
