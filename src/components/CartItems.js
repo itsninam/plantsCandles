@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const CartItems = ({ cart }) => {
   return (
@@ -17,27 +18,30 @@ const CartItems = ({ cart }) => {
             {" "}
             <p>Back to Menu</p>
           </Link>
-          <ul className="itemsContainer">
+          <ul className="cartList">
             {cart.map((item) => {
               return (
-                <li key={item.id}>
+                <li key={item.id} className="cartItems">
                   <img src={item.urls.small} alt={item.alt_description}></img>
                   <div className="flexContainer">
                     <p>
                       {item.donutNames}
                       {item.coffeeNames}
                     </p>
-                    <p>
-                      $ {item.coffeePrices} {item.donutPrices}
-                    </p>
+                    <button>Remove</button>
                   </div>
-                  <p>({item.quantity})</p>
+                  <p>{item.quantity}</p>
+                  <p>
+                    {"$"}
+                    {item.coffeePrices} {item.donutPrices}
+                  </p>
                 </li>
               );
             })}
           </ul>
         </>
       )}
+      <Footer />
     </div>
   );
 };

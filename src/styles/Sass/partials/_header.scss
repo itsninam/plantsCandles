@@ -1,0 +1,30 @@
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  z-index: 10;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .icon {
+    font-size: 1.65rem;
+  }
+
+  p {
+    position: relative;
+    font-size: 0.6rem;
+
+    span {
+      color: #fff;
+      position: absolute;
+      top: 15px;
+      left: 6.5px;
+    }
+  }
+}

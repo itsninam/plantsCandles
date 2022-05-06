@@ -1,26 +1,27 @@
-import { useState } from "react";
-
 const Categories = ({ categories, handleCategory, singleCategory }) => {
   return (
-    <div className="wrapper">
+    <nav className="wrapper">
       <div className="categoryButtons">
-        {categories.map((category, index) => {
-          return (
-            <>
-              <button
-                key={index}
-                onClick={() => {
-                  handleCategory(category);
-                  singleCategory(category);
-                }}
-              >
-                {category}
-              </button>
-            </>
-          );
-        })}
+        <p>Products</p>
+        <ul>
+          {categories.map((category, index) => {
+            return (
+              <li>
+                <button
+                  key={index}
+                  onClick={() => {
+                    handleCategory(category);
+                    singleCategory(category);
+                  }}
+                >
+                  {category === "All" ? <>All Products</> : <>{category}</>}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 

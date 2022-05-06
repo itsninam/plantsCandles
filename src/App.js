@@ -1,5 +1,5 @@
 //styling
-import "./App.scss";
+import "./styles/Sass/App.scss";
 
 //modules
 import { useEffect, useState } from "react";
