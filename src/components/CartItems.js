@@ -16,7 +16,7 @@ const CartItems = ({ cart }) => {
         <>
           <Link to={"/"}>
             {" "}
-            <p>Back to Menu</p>
+            <p>Back to Store</p>
           </Link>
           <ul className="cartList">
             {cart.map((item) => {
@@ -25,15 +25,15 @@ const CartItems = ({ cart }) => {
                   <img src={item.urls.small} alt={item.alt_description}></img>
                   <div className="flexContainer">
                     <p>
-                      {item.donutNames}
-                      {item.coffeeNames}
+                      {item.candleNames}
+                      {item.plantNames}
                     </p>
                     <button>Remove</button>
                   </div>
                   <p>{item.quantity}</p>
                   <p>
                     {"$"}
-                    {item.coffeePrices} {item.donutPrices}
+                    {item.plantPrices} {item.candlePrices}
                   </p>
                 </li>
               );

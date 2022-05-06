@@ -6,7 +6,7 @@ const Header = ({ cart }) => {
   return (
     <header>
       <div className="wrapper">
-        <h1>Coffee & Donuts</h1>
+        <h1>Plants & Candles</h1>
         <Link to={"/cartItems"}>
           <p>
             <FontAwesomeIcon

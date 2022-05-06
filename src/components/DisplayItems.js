@@ -2,22 +2,21 @@ const DisplayItems = ({ data, handleAddItem, categoryName }) => {
   return (
     <div className="wrapper">
       <div className="itemsContainer">
-        {!categoryName ? <h2>All Menu</h2> : <h2>{categoryName} Menu</h2>}
-
+        {!categoryName ? <h2>All</h2> : <h2>{categoryName}</h2>}
         <ul>
           {data.map((item) => {
             return (
               <li key={item.id}>
                 <img src={item.urls.small} alt={item.alt_description}></img>
                 <p>
-                  {item.donutNames}
-                  {item.coffeeNames}
+                  {item.candleNames}
+                  {item.plantNames}
                 </p>
                 <div className="flexContainer">
                   <p>
                     {"$"}
-                    {item.coffeePrices}
-                    {item.donutPrices}
+                    {item.plantPrices}
+                    {item.candlePrices}
                   </p>
                   <button onClick={() => handleAddItem(item)}>
                     Add to order
