@@ -260,6 +260,19 @@ button {
   padding: 10px;
 }
 
+.btn {
+  background-color: #e6ccb2;
+  box-shadow: 0px 8px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: #b08968;
+  }
+}
+
 a {
   text-decoration: none;
   display: inline-block;

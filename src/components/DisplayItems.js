@@ -18,7 +18,7 @@ const DisplayItems = ({ data, handleAddItem, categoryName }) => {
                     {item.plantPrices}
                     {item.candlePrices}
                   </p>
-                  <button onClick={() => handleAddItem(item)}>
+                  <button className="btn" onClick={() => handleAddItem(item)}>
                     Add to order
                   </button>
                 </div>

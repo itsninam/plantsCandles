@@ -28,7 +28,7 @@ const CartItems = ({ cart }) => {
                       {item.candleNames}
                       {item.plantNames}
                     </p>
-                    <button>Remove</button>
+                    <button className="btn">Remove</button>
                   </div>
                   <p>{item.quantity}</p>
                   <p>
