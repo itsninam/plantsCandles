@@ -1,5 +1,5 @@
 //styling
-import "./App.scss";
+import "./styles/Sass/App.scss";
 
 //modules
 import { useEffect, useState } from "react";
@@ -28,67 +28,69 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const responseCoffee = await axios({
+      const responsePlant = await axios({
         url: "https://api.unsplash.com/search/photos",
         params: {
           client_id: "d54vE8fu6bjJ_JgkBqugaZOt4bwFHGkmiKDGHunnXxc",
-          query: "capuccino",
+          query: "potted plant",
+          orientation: "portrait",
+          per_page: 6,
+        },
+      });
+
+      console.log(responsePlant);
+
+      //add additional data to response
+      const plantPrices = [30.15, 25.65, 22.45, 50.65, 45.75, 30.95];
+      const plantNames = [
+        "Burgundy Rubber Tree",
+        "Zamiifolia",
+        "Devil's Ivy",
+        "Monstera",
+        "Snake Plant",
+        "Bird's Nest Fern",
+      ];
+
+      const morePlantData = responsePlant.data.results.map((item, index) => {
+        return {
+          ...item,
+          category: "Plants",
+          plantPrices: plantPrices[index],
+          plantNames: plantNames[index],
+        };
+      });
+
+      const responseCandle = await axios({
+        url: "https://api.unsplash.com/search/photos",
+        params: {
+          client_id: "d54vE8fu6bjJ_JgkBqugaZOt4bwFHGkmiKDGHunnXxc",
+          query: "candles",
           orientation: "portrait",
           per_page: 6,
         },
       });
 
       //add additional data to response
-      const coffeePrices = [4.15, 3.65, 3.45, 4.65, 8.75, 4.95];
-      const coffeeNames = [
-        "Caramel Macchiato",
-        "White Chocolate Mocha",
-        "Skinny Vanilla Latte",
-        "Caffee Mocha",
-        "Cinnamon Dolce Latte",
-        "Flat White",
+      const candlePrices = [8.55, 5.99, 9.88, 7.39, 10.55, 8.55];
+      const candleNames = [
+        "Mahogany Teakwood",
+        "Ocean Driftwood",
+        "White Tea and Sage",
+        "Champagne Toast",
+        "Lavender Vanilla",
+        "Lemon Cake Pop",
       ];
 
-      const moreCoffeeData = responseCoffee.data.results.map((item, index) => {
+      const moreCandleData = responseCandle.data.results.map((item, index) => {
         return {
           ...item,
-          category: "Coffee",
-          coffeePrices: coffeePrices[index],
-          coffeeNames: coffeeNames[index],
+          category: "Candles",
+          candlePrices: candlePrices[index],
+          candleNames: candleNames[index],
         };
       });
-
-      const responseDonut = await axios({
-        url: "https://api.unsplash.com/search/photos",
-        params: {
-          client_id: "d54vE8fu6bjJ_JgkBqugaZOt4bwFHGkmiKDGHunnXxc",
-          query: "donuts",
-          orientation: "portrait",
-          per_page: 6,
-        },
-      });
-
-      //add additional data to response
-      const donutPrices = [2.55, 3.99, 1.88, 2.39, 2.55, 4.55];
-      const donutNames = [
-        "Strawberry Frosted Donut",
-        "Chocholate Glazed Donut",
-        "Honey Glaze Donut",
-        "Cream Filled Donut",
-        "Matcha Baked Donut",
-        "Caramel Glaze Donut",
-      ];
-
-      const moreDonutData = responseDonut.data.results.map((item, index) => {
-        return {
-          ...item,
-          category: "Donuts",
-          donutPrices: donutPrices[index],
-          donutNames: donutNames[index],
-        };
-      });
-      setData([...moreCoffeeData, ...moreDonutData]);
-      setFiltered([...moreCoffeeData, ...moreDonutData]);
+      setData([...morePlantData, ...moreCandleData]);
+      setFiltered([...morePlantData, ...moreCandleData]);
     };
 
     fetchData();

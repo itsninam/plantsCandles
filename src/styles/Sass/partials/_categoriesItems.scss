@@ -1,0 +1,54 @@
+.categoryButtons {
+  width: 15%;
+  text-align: left;
+  position: fixed;
+  height: 100%;
+  top: 120px;
+
+  p {
+    padding-left: 10px;
+    font-weight: 800;
+  }
+
+  button {
+    margin-bottom: 20px;
+    background-color: #faf2ef;
+    text-align: left;
+
+    &:hover {
+      text-transform: lowercase;
+      font-style: italic;
+      font-weight: 500;
+      color: #b08968;
+    }
+  }
+}
+
+.itemsContainer {
+  width: 80%;
+  margin-left: auto;
+  margin-top: 120px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  li {
+    margin-right: 5px;
+    margin-bottom: 80px;
+
+    p:nth-child(2) {
+      font-weight: 500;
+      color: #b08968;
+      text-align: center;
+    }
+  }
+
+  .flexContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

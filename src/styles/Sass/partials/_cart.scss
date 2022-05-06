@@ -1,0 +1,30 @@
+.cartList {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.cartItems {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ced4da;
+
+  p {
+    margin: 0;
+  }
+
+  .flexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 230px;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
+}
