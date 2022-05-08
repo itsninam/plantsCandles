@@ -1,11 +1,17 @@
-.emptyCart {
-  border-radius: 5px;
-  text-align: center;
-  width: 50%;
-  margin: 20vh auto;
-  padding: 50px 0;
-  background-color: #fff;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+
+  .emptyCart {
+    border-radius: 5px;
+    text-align: center;
+    width: 50%;
+    padding: 50px 0;
+    background-color: #fff;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .flexContainer {
@@ -23,6 +29,7 @@
 
 .cartItems {
   text-align: center;
+  height: auto;
 
   .flexContainer {
     flex-direction: column;
@@ -56,6 +63,7 @@ table {
   width: 65%;
   font-weight: 500;
   margin-top: 15px;
+  margin-bottom: 50px;
 
   tr {
     display: inline-table;
