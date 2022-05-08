@@ -6,9 +6,8 @@ const Categories = ({ categories, handleCategory, singleCategory }) => {
         <ul>
           {categories.map((category, index) => {
             return (
-              <li>
+              <li key={index}>
                 <button
-                  key={index}
                   onClick={() => {
                     handleCategory(category);
                     singleCategory(category);

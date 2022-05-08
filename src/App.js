@@ -132,6 +132,12 @@ function App() {
     setCategoryName(singleCategory);
   };
 
+  //remove item from cart
+  const removeItem = (id) => {
+    const removedItem = cart.filter((item) => item.id !== id);
+    setCart(removedItem);
+  };
+
   return (
     <>
       <Routes>
@@ -154,7 +160,10 @@ function App() {
             </>
           }
         />
-        <Route path="/cartItems" element={<CartItems cart={cart} />} />
+        <Route
+          path="/cartItems"
+          element={<CartItems cart={cart} removeItem={removeItem} />}
+        />
       </Routes>
     </>
   );
