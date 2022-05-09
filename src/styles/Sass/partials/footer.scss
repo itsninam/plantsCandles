@@ -8,10 +8,11 @@ footer {
     margin: 0;
     text-align: center;
     color: #343a40;
+    padding: 3px 0;
   }
 
   a {
-    padding: 8px 0;
+    padding: 5px 0;
 
     &:hover,
     &:focus {
@@ -23,4 +24,12 @@ footer {
 body {
   position: relative;
   min-height: 100vh;
+}
+
+@media (max-width: 430px) {
+  footer {
+    p {
+      font-size: 0.6rem;
+    }
+  }
 }

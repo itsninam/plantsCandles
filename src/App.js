@@ -145,7 +145,7 @@ function App() {
         element={
           <>
             <Header cart={cart} />
-            <main>
+            <main className="main">
               <Categories
                 categories={categories}
                 handleCategory={handleCategory}

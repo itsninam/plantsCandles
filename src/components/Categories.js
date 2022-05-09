@@ -2,7 +2,7 @@ const Categories = ({ categories, handleCategory, singleCategory }) => {
   return (
     <nav className="wrapper">
       <div className="categoryButtons">
-        <p>Products</p>
+        <p>Browse by</p>
         <ul>
           {categories.map((category, index) => {
             return (

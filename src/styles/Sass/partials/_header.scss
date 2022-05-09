@@ -1,6 +1,6 @@
 /* Header */
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   background-color: #fff;
   width: 100%;
@@ -27,5 +27,11 @@ header {
       top: 8.5px;
       left: 12px;
     }
+  }
+}
+
+@media (max-width: 430px) {
+  h1 {
+    font-size: 1.3rem;
   }
 }
