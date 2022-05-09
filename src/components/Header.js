@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+//styling
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCertificate } from "@fortawesome/free-solid-svg-icons";
+
+//modules
+import { Link } from "react-router-dom";
 
 const Header = ({ cart }) => {
   return (

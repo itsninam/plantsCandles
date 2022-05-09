@@ -1,7 +1,7 @@
 const DisplayItems = ({ data, handleAddItem, categoryName }) => {
   return (
     <div className="wrapper">
-      <div className="itemsContainer">
+      <section className="itemsContainer">
         {!categoryName ? <h2>All</h2> : <h2>{categoryName}</h2>}
         <ul>
           {data.map((item) => {
@@ -26,7 +26,7 @@ const DisplayItems = ({ data, handleAddItem, categoryName }) => {
             );
           })}
         </ul>
-      </div>
+      </section>
     </div>
   );
 };

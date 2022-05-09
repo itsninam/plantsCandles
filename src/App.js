@@ -139,13 +139,13 @@ function App() {
   };
 
   return (
-    <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header cart={cart} />
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <Header cart={cart} />
+            <main>
               <Categories
                 categories={categories}
                 handleCategory={handleCategory}
@@ -156,16 +156,16 @@ function App() {
                 handleAddItem={handleAddItem}
                 categoryName={categoryName}
               />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/cartItems"
-          element={<CartItems cart={cart} removeItem={removeItem} />}
-        />
-      </Routes>
-    </>
+            </main>
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/cartItems"
+        element={<CartItems cart={cart} removeItem={removeItem} />}
+      />
+    </Routes>
   );
 }
 

@@ -1,14 +1,22 @@
-import { Link } from "react-router-dom";
-import Footer from "./Footer";
-import { useEffect, useState } from "react";
+//styling
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
+//modules
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+//components
+import Footer from "./Footer";
+
 const CartItems = ({ cart, removeItem }) => {
+  //store total items amount
   const [totalItems, setTotalItems] = useState(0);
+  //store total price amount
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
+    //add all items in cart to calculate total
     const calculateTotalItems = () => {
       const total = cart.reduce(
         (previous, current) => previous + current.quantity,
@@ -20,6 +28,7 @@ const CartItems = ({ cart, removeItem }) => {
   }, [cart]);
 
   useEffect(() => {
+    //add price of all items to calculate total
     const calculateTotalPrice = () => {
       const total = cart.reduce(
         (previous, current) =>
@@ -32,13 +41,14 @@ const CartItems = ({ cart, removeItem }) => {
     calculateTotalPrice();
   }, [cart]);
 
+  //ensure page is loaded at top when user enters cart items page
   useEffect(() => {
     window.scrollTo(0, 0);
   });
 
   return (
     <>
-      <div className="wrapper">
+      <section className="wrapper">
         {cart.length === 0 ? (
           <div className="mainContainer">
             <div className="emptyCart">
@@ -111,7 +121,7 @@ const CartItems = ({ cart, removeItem }) => {
             </table>
           </>
         )}
-      </div>
+      </section>
       <Footer />
     </>
   );

@@ -3,7 +3,7 @@
   text-align: left;
   position: fixed;
   height: 100%;
-  top: 120px;
+  top: 140px;
 
   p {
     padding-left: 10px;
@@ -33,10 +33,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
   }
 
   li {
-    margin-right: 5px;
+    // margin-right: 5px;
     margin-bottom: 80px;
 
     p:nth-child(2) {
@@ -44,5 +45,18 @@
       color: #b08968;
       text-align: center;
     }
+  }
+}
+
+@media (max-width: 850px) {
+  .itemsContainer {
+    ul {
+      justify-content: space-around;
+      border: 2px solid green;
+    }
+  }
+
+  .categoryButtons {
+    display: none;
   }
 }
