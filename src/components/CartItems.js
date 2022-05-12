@@ -8,43 +8,44 @@ import { Link } from "react-router-dom";
 
 //components
 import Footer from "./Footer";
+import TableItems from "./TableItems";
 
-const CartItems = ({ cart, removeItem }) => {
+const CartItems = ({ cart, handleRemoveItem }) => {
   //store total items amount
   const [totalItems, setTotalItems] = useState(0);
   //store total price amount
   const [totalPrice, setTotalPrice] = useState(0);
 
-  useEffect(() => {
-    //add all items in cart to calculate total
-    const calculateTotalItems = () => {
-      const total = cart.reduce(
-        (previous, current) => previous + current.quantity,
-        0
-      );
-      setTotalItems(total);
-    };
-    calculateTotalItems();
-  }, [cart]);
+  //calculate total items added to cart
+  const calculateTotalItems = (cartItem) => {
+    const total = cartItem.reduce(
+      (previous, current) => previous + current.quantity,
+      0
+    );
+    return total;
+  };
+
+  //calculate total price based on price * number of items
+  const calculateTotalPrice = (itemPrice) => {
+    const totalPrice = itemPrice.reduce(
+      (previous, current) =>
+        previous +
+        (current.plantPrices || current.candlePrices) * current.quantity,
+      0
+    );
+
+    return totalPrice;
+  };
 
   useEffect(() => {
-    //add price of all items to calculate total
-    const calculateTotalPrice = () => {
-      const total = cart.reduce(
-        (previous, current) =>
-          previous + (current.plantPrices || current.candlePrices),
-        0
-      );
-
-      setTotalPrice(total);
-    };
-    calculateTotalPrice();
+    //ensure page is loaded at top when user enters cart items page
+    setTotalItems(calculateTotalItems(cart));
+    setTotalPrice(calculateTotalPrice(cart));
   }, [cart]);
 
-  //ensure page is loaded at top when user enters cart items page
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   return (
     <>
@@ -71,54 +72,12 @@ const CartItems = ({ cart, removeItem }) => {
                 <p>Back to Store</p>
               </div>
             </Link>
-            <table className="cartItems">
-              <tr>
-                <th> </th>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Price</th>
-              </tr>
-              {cart.map((item) => {
-                return (
-                  <>
-                    <tr>
-                      <td>
-                        <img src={item.urls.small} alt={item.alt_description} />
-                      </td>
-                      <td>
-                        <div className="flexContainer">
-                          {item.candleNames} {item.plantNames}
-                          <button
-                            className="btn"
-                            onClick={() => removeItem(item.id)}
-                          >
-                            Remove
-                          </button>
-                        </div>
-                      </td>
-                      <td>{item.quantity}</td>
-                      <td>
-                        {"$"}
-                        {item.candlePrices}
-                        {item.plantPrices}
-                      </td>
-                    </tr>
-                  </>
-                );
-              })}
-            </table>
-            <table className="totalInfo wrapper">
-              <tr>
-                <table>Total:</table>
-              </tr>
-              <tr>
-                <td>{totalItems}</td>
-                <td>
-                  {"$"}
-                  {totalPrice.toFixed(2)}
-                </td>
-              </tr>
-            </table>
+            <TableItems
+              cart={cart}
+              totalItems={totalItems}
+              totalPrice={totalPrice}
+              handleRemoveItem={handleRemoveItem}
+            />
           </>
         )}
       </section>

@@ -17,15 +17,19 @@ function App() {
   //store api data
   const [data, setData] = useState([]);
 
-  //filter api data
+  //filter api data based on category
   const [filtered, setFiltered] = useState([]);
 
-  //create categories
+  //store categories
   const [categories, setCategories] = useState([]);
 
   //store cart items
   const [cart, setCart] = useState([]);
 
+  //store category names
+  const [categoryName, setCategoryName] = useState("");
+
+  //api call
   useEffect(() => {
     const fetchData = async () => {
       const responsePlant = await axios({
@@ -37,8 +41,6 @@ function App() {
           per_page: 6,
         },
       });
-
-      console.log(responsePlant);
 
       //add additional data to response
       const plantPrices = [30.15, 25.65, 22.45, 50.65, 45.75, 30.95];
@@ -97,12 +99,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    //obtain individual categories and add 'all'
+    //obtain individual categories and add 'all' category
     setCategories([...new Set(data.map((item) => item.category)), "All"]);
   }, [data]);
 
   //filter by category
-  const handleCategory = (category) => {
+  const handleSelectCategory = (category) => {
     if (category === "All") {
       setFiltered(data);
     } else {
@@ -125,15 +127,15 @@ function App() {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
   };
-  const [categoryName, setCategoryName] = useState("");
 
-  const singleCategory = (name) => {
+  //display category name when user filters through categories
+  const displayCategoryName = (name) => {
     const singleCategory = categories.find((category) => category === name);
     setCategoryName(singleCategory);
   };
 
   //remove item from cart
-  const removeItem = (id) => {
+  const handleRemoveItem = (id) => {
     const removedItem = cart.filter((item) => item.id !== id);
     setCart(removedItem);
   };
@@ -148,8 +150,8 @@ function App() {
             <main className="main">
               <Categories
                 categories={categories}
-                handleCategory={handleCategory}
-                singleCategory={singleCategory}
+                handleSelectCategory={handleSelectCategory}
+                displayCategoryName={displayCategoryName}
               />
               <DisplayItems
                 data={filtered}
@@ -163,7 +165,7 @@ function App() {
       />
       <Route
         path="/cartItems"
-        element={<CartItems cart={cart} removeItem={removeItem} />}
+        element={<CartItems cart={cart} handleRemoveItem={handleRemoveItem} />}
       />
     </Routes>
   );
