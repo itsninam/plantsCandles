@@ -1,7 +1,7 @@
-@use "./partials/variables";
-@use "./partials/baseStyles";
-@use "./partials/typography";
-@use "./partials/header";
-@use "./partials/categoriesItems";
-@use "./partials/cart";
-@use "./partials/footer";
+@import "./partials/variables";
+@import "./partials/baseStyles";
+@import "./partials/typography";
+@import "./partials/header";
+@import "./partials/categoriesItems";
+@import "./partials/cartItems";
+@import "./partials/footer";

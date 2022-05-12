@@ -4,8 +4,22 @@ import { faCertificate } from "@fortawesome/free-solid-svg-icons";
 
 //modules
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Header = ({ cart }) => {
+  const [totalCart, setTotalCart] = useState("");
+
+  useEffect(() => {
+    const cartItems = (items) => {
+      const totalItems = items.reduce(
+        (previous, current) => previous + current.quantity,
+        0
+      );
+      return totalItems;
+    };
+    setTotalCart(cartItems(cart));
+  }, [cart]);
+
   return (
     <header>
       <div className="wrapper">
@@ -18,11 +32,7 @@ const Header = ({ cart }) => {
               aria-hidden="true"
             />
             <span className="sr-only">Link to cart</span>
-            <span>
-              {cart
-                .map((item) => item.quantity)
-                .reduce((previous, current) => previous + current, 0)}
-            </span>
+            <span>{totalCart}</span>
           </p>
         </Link>
       </div>

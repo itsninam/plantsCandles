@@ -1,4 +1,8 @@
-const Categories = ({ categories, handleCategory, singleCategory }) => {
+const Categories = ({
+  categories,
+  handleSelectCategory,
+  displayCategoryName,
+}) => {
   return (
     <nav className="wrapper">
       <div className="categoryButtons">
@@ -9,8 +13,8 @@ const Categories = ({ categories, handleCategory, singleCategory }) => {
               <li key={index}>
                 <button
                   onClick={() => {
-                    handleCategory(category);
-                    singleCategory(category);
+                    handleSelectCategory(category);
+                    displayCategoryName(category);
                   }}
                 >
                   {category === "All" ? <>All Products</> : <>{category}</>}
