@@ -14,18 +14,18 @@ header {
   }
 
   .icon {
-    font-size: 1.65rem;
+    font-size: 1.69rem;
   }
 
   p {
-    position: relative;
     font-size: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     span {
       color: #fff;
       position: absolute;
-      top: 8.5px;
-      left: 12px;
     }
   }
 }
