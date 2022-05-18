@@ -24,7 +24,7 @@ const Header = ({ cart }) => {
     <header>
       <div className="wrapper">
         <h1>Plants & Candles</h1>
-        <Link to={"/cartItems"}>
+        <Link to="/cartItems">
           <p>
             <FontAwesomeIcon
               icon={faCertificate}

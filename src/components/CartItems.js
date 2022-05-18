@@ -38,12 +38,12 @@ const CartItems = ({ cart, handleRemoveItem }) => {
   };
 
   useEffect(() => {
-    //ensure page is loaded at top when user enters cart items page
     setTotalItems(calculateTotalItems(cart));
     setTotalPrice(calculateTotalPrice(cart));
   }, [cart]);
 
   useEffect(() => {
+    //ensure page is loaded at top when user enters cart items page
     window.scrollTo(0, 0);
   }, []);
 
@@ -54,15 +54,14 @@ const CartItems = ({ cart, handleRemoveItem }) => {
           <div className="mainContainer">
             <div className="emptyCart">
               <h2>No items in cart</h2>
-              <Link to={"/"}>
-                {" "}
+              <Link to="/">
                 <button className="btn">Start your order </button>
               </Link>
             </div>
           </div>
         ) : (
           <>
-            <Link to={"/"}>
+            <Link to="/">
               <div className="flexContainer accentHover">
                 <FontAwesomeIcon
                   icon={faArrowLeft}

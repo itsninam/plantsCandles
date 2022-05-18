@@ -1,5 +1,4 @@
 .categoryButtons {
-  // width: 15%;
   text-align: left;
   position: fixed;
   height: 100%;
@@ -26,14 +25,14 @@
 }
 
 .itemsContainer {
-  width: 80%;
+  width: 83%;
   margin-left: auto;
   transition: 0.5s;
 
   ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
   }
 
@@ -49,6 +48,7 @@
   }
 }
 
+//media queries
 @media (max-width: 850px) {
   .itemsContainer {
     margin-top: 10px;
