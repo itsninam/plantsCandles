@@ -52,7 +52,7 @@ const CartItems = ({ cart, handleRemoveItem }) => {
       <section className="wrapper">
         {cart.length === 0 ? (
           <div className="mainContainer">
-            <div className="emptyCart">
+            <div className="alertCard">
               <h2>No items in cart</h2>
               <Link to="/">
                 <button className="btn">Start your order </button>

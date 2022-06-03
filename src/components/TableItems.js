@@ -1,6 +1,20 @@
+//components
+import ModalWindow from "./ModalWindow";
+
+//modules
+import { useState } from "react";
+
 const TableItems = ({ cart, totalItems, totalPrice, handleRemoveItem }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const scrollToModal = () => {
+    setIsModalOpen(true);
+    //scroll to middle of screen to reveal modal window
+    window.scrollTo(0, window.innerHeight);
+  };
+
   return (
-    <>
+    <div className="tableContainer">
       <table className="cartItems">
         <thead>
           <tr>
@@ -55,7 +69,17 @@ const TableItems = ({ cart, totalItems, totalPrice, handleRemoveItem }) => {
           </tr>
         </tbody>
       </table>
-    </>
+      <div className="purchaseBtnContainer">
+        <button
+          className="btn purchaseBtn"
+          // onClick={() => setIsModalOpen(true)}
+          onClick={scrollToModal}
+        >
+          Purchase
+        </button>
+      </div>
+      {isModalOpen ? <ModalWindow setIsModalOpen={setIsModalOpen} /> : ""}
+    </div>
   );
 };
 
